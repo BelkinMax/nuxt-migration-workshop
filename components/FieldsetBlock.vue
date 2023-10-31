@@ -4,6 +4,10 @@ const props = defineProps({
     type: String,
     required: true
   },
+  common: {
+    type: Boolean,
+    default: false
+  },
   actions: {
     type: Boolean,
     default: false
@@ -14,6 +18,10 @@ const props = defineProps({
 <template>
   <div class="block">
     <h3>{{ props.title }}</h3>
+    <fieldset v-if="common">
+      <legend>Common Data</legend>
+      <slot name="common" />
+    </fieldset>
     <div class="sections">
       <fieldset>
         <legend>Options</legend>

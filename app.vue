@@ -6,6 +6,7 @@ import { OptionsMethods, CompositionMethods } from './workshop/basics/methods'
 import { OptionsLifecycle, CompositionLifecycle } from './workshop/basics/lifecycle'
 import { OptionsRefs, CompositionRefs } from './workshop/basics/refs'
 import { OptionsWatch, CompositionWatch } from './workshop/basics/watch'
+import { OptionsEmits, CompositionEmits } from './workshop/basics/emits'
 
 const propsMock = reactive({
   name: 'John Doe',
@@ -18,23 +19,24 @@ const propsMock = reactive({
 const message = ref('Hello World!')
 const isOptionsOpened = ref(false)
 const isCompositionOpened = ref(false)
+const emittedData = ref('')
 
 function changeProps() {
   propsMock.age++
   propsMock.clientData.isRegistered = !propsMock.clientData.isRegistered
   propsMock.clientData.balance += 10
 }
-
 function revertMessage() {
   message.value = message.value.split('').reverse().join('')
 }
-
 function toggleOptions() {
   isOptionsOpened.value = !isOptionsOpened.value
 }
-
 function toggleComposition() {
   isCompositionOpened.value = !isCompositionOpened.value
+}
+function setEmittedData(data) {
+  emittedData.value = data
 }
 </script>
 
@@ -113,7 +115,17 @@ function toggleComposition() {
         <CompositionWatch />
       </template>
     </FieldsetBlock>
-    <FieldsetBlock title="Emits" />
+    <FieldsetBlock title="Emits" common>
+      <template #common>
+        <div>Emitted Data: {{ emittedData }}</div>
+      </template>
+      <template #options>
+        <OptionsEmits @updateNumber="setEmittedData" />
+      </template>
+      <template #composition>
+        <CompositionEmits @updateNumber="setEmittedData" />
+      </template>
+    </FieldsetBlock>
 
     <h2>Composables</h2>
     <FieldsetBlock title="Provide & Inject" />
