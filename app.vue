@@ -1,6 +1,7 @@
 <script setup>
 import { OptionsData, CompositionData } from './workshop/basics/data'
 import { OptionsProps, CompositionProps } from './workshop/basics/props'
+import { OptionsComputed, CompositionComputed } from './workshop/basics/computed'
 
 const propsMock = reactive({
   name: 'John Doe',
@@ -28,7 +29,6 @@ function changeProps() {
         <CompositionData />
       </template>
     </FieldsetBlock>
-
     <FieldsetBlock actions title="Props">
       <template #options>
         <OptionsProps
@@ -46,6 +46,14 @@ function changeProps() {
       </template>
       <template #actions>
         <button @click="changeProps">Change props</button>
+      </template>
+    </FieldsetBlock>
+    <FieldsetBlock title="Computed">
+      <template #options>
+        <OptionsComputed />
+      </template>
+      <template #composition>
+        <CompositionComputed />
       </template>
     </FieldsetBlock>
   </div>
