@@ -4,20 +4,22 @@ import { OptionsData, CompositionData } from './workshop/basics/data'
 
 <template>
   <div class="container">
-    <div class="block">
-      <fieldset>
-        <legend>Options Data</legend>
+    <FieldsetBlock title="Data">
+      <template #options>
         <OptionsData />
-      </fieldset>
-      <fieldset>
-        <legend>Composition Data</legend>
+      </template>
+      <template #composition>
         <CompositionData />
-      </fieldset>
-    </div>
+      </template>
+    </FieldsetBlock>
   </div>
 </template>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     font-family: Roboto Mono, monospace;
     margin: 0;
@@ -31,17 +33,5 @@ import { OptionsData, CompositionData } from './workshop/basics/data'
     gap: 2rem;
     width: 100%;
     min-height: 100vh;
-  }
-
-  .block {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    width: 100%;
-  }
-
-  fieldset {
-    flex: 1;
   }
 </style>
