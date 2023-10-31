@@ -94,6 +94,14 @@ function changeProps() {
     padding: 2rem;
   }
 
+  h2 {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
   .container {
     display: flex;
     flex-direction: column;

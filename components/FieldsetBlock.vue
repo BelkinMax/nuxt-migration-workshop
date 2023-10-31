@@ -13,7 +13,7 @@ const props = defineProps({
 
 <template>
   <div class="block">
-    <h2>{{ props.title }}</h2>
+    <h3>{{ props.title }}</h3>
     <div class="sections">
       <fieldset>
         <legend>Options</legend>
@@ -33,7 +33,7 @@ const props = defineProps({
 
 
 <style scoped>
-h2 {
+h3 {
   margin: 0;
 }
 
