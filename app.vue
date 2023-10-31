@@ -11,6 +11,8 @@ import { OptionsEmits, CompositionEmits } from './workshop/basics/emits'
 import { OptionsProvideInject, CompositionProvideInject } from './workshop/composables/provide-inject'
 import { OptionsMixinsExtends, CompositionMixinsExtends } from './workshop/composables/mixins-extends'
 
+import { CompositionOnceDirective } from './workshop/directives/once'
+
 // Props
 const propsMock = reactive({
   name: 'John Doe',
@@ -154,7 +156,11 @@ function setEmittedData(data) {
     </FieldsetBlock>
 
     <h2>New Directives</h2>
-    <FieldsetBlock title="v-once" single />
+    <FieldsetBlock title="v-once" single>
+      <template #composition>
+        <CompositionOnceDirective />
+      </template>
+    </FieldsetBlock>
     <FieldsetBlock title="v-memo" single />
     <FieldsetBlock title="v-cloak" single />
 
