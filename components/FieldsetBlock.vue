@@ -24,7 +24,7 @@ const props = defineProps({
         <slot name="composition" />
       </fieldset>
     </div>
-    <fieldset v-if="actions">
+    <fieldset v-if="actions" class="actions">
       <legend>Actions</legend>
       <slot name="actions" />
     </fieldset>
@@ -55,5 +55,10 @@ h3 {
 fieldset {
   margin: 0;
   flex: 1;
+}
+
+.actions{
+  display: flex;
+  gap: 1rem;
 }
 </style>

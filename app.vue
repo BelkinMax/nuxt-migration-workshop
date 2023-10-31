@@ -3,6 +3,7 @@ import { OptionsData, CompositionData } from './workshop/basics/data'
 import { OptionsProps, CompositionProps } from './workshop/basics/props'
 import { OptionsComputed, CompositionComputed } from './workshop/basics/computed'
 import { OptionsMethods, CompositionMethods } from './workshop/basics/methods'
+import { OptionsLifecycle, CompositionLifecycle } from './workshop/basics/lifecycle'
 import { OptionsRefs, CompositionRefs } from './workshop/basics/refs'
 import { OptionsWatch, CompositionWatch } from './workshop/basics/watch'
 
@@ -14,11 +15,26 @@ const propsMock = reactive({
     balance: 100
   }
 })
+const message = ref('Hello World!')
+const isOptionsOpened = ref(false)
+const isCompositionOpened = ref(false)
 
 function changeProps() {
   propsMock.age++
   propsMock.clientData.isRegistered = !propsMock.clientData.isRegistered
   propsMock.clientData.balance += 10
+}
+
+function revertMessage() {
+  message.value = message.value.split('').reverse().join('')
+}
+
+function toggleOptions() {
+  isOptionsOpened.value = !isOptionsOpened.value
+}
+
+function toggleComposition() {
+  isCompositionOpened.value = !isCompositionOpened.value
 }
 </script>
 
@@ -68,6 +84,19 @@ function changeProps() {
         <CompositionMethods />
       </template>
     </FieldsetBlock>
+    <FieldsetBlock title="Lifecycle" actions>
+      <template #options>
+        <OptionsLifecycle v-if="isOptionsOpened" :message="message" />
+      </template>
+      <template #composition>
+        <CompositionLifecycle v-if="isCompositionOpened" :message="message" />
+      </template>
+      <template #actions>
+        <button @click="revertMessage">Revert message</button>
+        <button @click="toggleOptions">Toggle options</button>
+        <button @click="toggleComposition">Toggle composition</button>
+      </template>
+    </FieldsetBlock>
     <FieldsetBlock title="Refs">
       <template #options>
         <OptionsRefs />
@@ -86,7 +115,6 @@ function changeProps() {
     </FieldsetBlock>
     <FieldsetBlock title="Emits" />
     <FieldsetBlock title="Expose" />
-    <FieldsetBlock title="Lifecycle" />
 
     <h2>Composables</h2>
     <FieldsetBlock title="Provide & Inject" />
