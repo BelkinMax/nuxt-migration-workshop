@@ -30,7 +30,7 @@ function changeProps() {
         <CompositionData />
       </template>
     </FieldsetBlock>
-    <FieldsetBlock actions title="Props">
+    <FieldsetBlock title="Props" actions>
       <template #options>
         <OptionsProps
           :name="propsMock.name"
