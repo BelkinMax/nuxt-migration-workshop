@@ -8,6 +8,7 @@ import { OptionsRefs, CompositionRefs } from './workshop/basics/refs'
 import { OptionsWatch, CompositionWatch } from './workshop/basics/watch'
 import { OptionsEmits, CompositionEmits } from './workshop/basics/emits'
 
+// Props
 const propsMock = reactive({
   name: 'John Doe',
   age: 42,
@@ -16,25 +17,29 @@ const propsMock = reactive({
     balance: 100
   }
 })
-const message = ref('Hello World!')
-const isOptionsOpened = ref(false)
-const isCompositionOpened = ref(false)
-const emittedData = ref('')
-
 function changeProps() {
   propsMock.age++
   propsMock.clientData.isRegistered = !propsMock.clientData.isRegistered
   propsMock.clientData.balance += 10
 }
+
+// Lifecycle
+const message = ref('Hello World!')
 function revertMessage() {
   message.value = message.value.split('').reverse().join('')
 }
+
+const isOptionsOpened = ref(false)
+const isCompositionOpened = ref(false)
 function toggleOptions() {
   isOptionsOpened.value = !isOptionsOpened.value
 }
 function toggleComposition() {
   isCompositionOpened.value = !isCompositionOpened.value
 }
+
+// Emits
+const emittedData = ref('')
 function setEmittedData(data) {
   emittedData.value = data
 }
