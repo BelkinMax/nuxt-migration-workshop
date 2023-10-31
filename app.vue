@@ -29,7 +29,7 @@ function changeProps() {
       </template>
     </FieldsetBlock>
 
-    <FieldsetBlock title="Props">
+    <FieldsetBlock actions title="Props">
       <template #options>
         <OptionsProps
           :name="propsMock.name"
@@ -44,9 +44,10 @@ function changeProps() {
           :client-data="propsMock.clientData"
         />
       </template>
+      <template #actions>
+        <button @click="changeProps">Change props</button>
+      </template>
     </FieldsetBlock>
-
-    <button @click="changeProps">Change props</button>
   </div>
 </template>
 

@@ -3,6 +3,10 @@ const props = defineProps({
   title: {
     type: String,
     required: true
+  },
+  actions: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
@@ -20,12 +24,23 @@ const props = defineProps({
         <slot name="composition" />
       </fieldset>
     </div>
+    <fieldset v-if="actions">
+      <legend>Actions</legend>
+      <slot name="actions" />
+    </fieldset>
   </div>
 </template>
 
 
 <style scoped>
+h2 {
+  margin: 0;
+}
+
 .block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   width: 100%;
 }
 
@@ -38,6 +53,7 @@ const props = defineProps({
 }
 
 fieldset {
+  margin: 0;
   flex: 1;
 }
 </style>
