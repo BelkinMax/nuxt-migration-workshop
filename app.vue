@@ -21,6 +21,7 @@ function changeProps() {
 
 <template>
   <div class="container">
+    <h2>Basics</h2>
     <FieldsetBlock title="Data">
       <template #options>
         <OptionsData />
@@ -56,6 +57,29 @@ function changeProps() {
         <CompositionComputed />
       </template>
     </FieldsetBlock>
+    <FieldsetBlock title="Methods" />
+    <FieldsetBlock title="Watch" />
+    <FieldsetBlock title="Emits" />
+    <FieldsetBlock title="Expose" />
+    <FieldsetBlock title="Lifecycle" />
+
+    <h2>Composables</h2>
+    <FieldsetBlock title="Provide & Inject" />
+    <FieldsetBlock title="Mixins & Extends" />
+
+    <h2>New Directives</h2>
+    <FieldsetBlock title="v-once" />
+    <FieldsetBlock title="v-memo" />
+    <FieldsetBlock title="v-cloak" />
+
+    <h2>Global Components</h2>
+    <FieldsetBlock title="KeepAlive" />
+    <FieldsetBlock title="Teleport" />
+    <FieldsetBlock title="Suspense (experimental)" />
+
+    <h2>Advanced Reactivity</h2>
+    <FieldsetBlock title="Ref & Reactive" />
+    <FieldsetBlock title="Scopes" />
   </div>
 </template>
 
