@@ -3,6 +3,7 @@ import { OptionsData, CompositionData } from './workshop/basics/data'
 import { OptionsProps, CompositionProps } from './workshop/basics/props'
 import { OptionsComputed, CompositionComputed } from './workshop/basics/computed'
 import { OptionsMethods, CompositionMethods } from './workshop/basics/methods'
+import { OptionsWatch, CompositionWatch } from './workshop/basics/watch'
 
 const propsMock = reactive({
   name: 'John Doe',
@@ -66,7 +67,14 @@ function changeProps() {
         <CompositionMethods />
       </template>
     </FieldsetBlock>
-    <FieldsetBlock title="Watch" />
+    <FieldsetBlock title="Watch">
+      <template #options>
+        <OptionsWatch />
+      </template>
+      <template #composition>
+        <CompositionWatch />
+      </template>
+    </FieldsetBlock>
     <FieldsetBlock title="Emits" />
     <FieldsetBlock title="Expose" />
     <FieldsetBlock title="Lifecycle" />
