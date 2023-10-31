@@ -1,6 +1,21 @@
 <script setup>
 import { OptionsData, CompositionData } from './workshop/basics/data'
 import { OptionsProps, CompositionProps } from './workshop/basics/props'
+
+const propsMock = reactive({
+  name: 'John Doe',
+  age: 42,
+  clientData: {
+    isRegistered: true,
+    balance: 100
+  }
+})
+
+function changeProps() {
+  propsMock.age++
+  propsMock.clientData.isRegistered = !propsMock.clientData.isRegistered
+  propsMock.clientData.balance += 10
+}
 </script>
 
 <template>
@@ -17,25 +32,21 @@ import { OptionsProps, CompositionProps } from './workshop/basics/props'
     <FieldsetBlock title="Props">
       <template #options>
         <OptionsProps
-          name="John Doe"
-          age="42"
-          :client-data="{
-            isRegistered: true,
-            balance: 100
-          }"
+          :name="propsMock.name"
+          :age="propsMock.age"
+          :client-data="propsMock.clientData"
         />
       </template>
       <template #composition>
         <CompositionProps
-          name="John Doe"
-          age="42"
-          :client-data="{
-            isRegistered: true,
-            balance: 100
-          }"
+          :name="propsMock.name"
+          :age="propsMock.age"
+          :client-data="propsMock.clientData"
         />
       </template>
     </FieldsetBlock>
+
+    <button @click="changeProps">Change props</button>
   </div>
 </template>
 
