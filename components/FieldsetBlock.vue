@@ -11,6 +11,10 @@ const props = defineProps({
   actions: {
     type: Boolean,
     default: false
+  },
+  single: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
@@ -23,7 +27,7 @@ const props = defineProps({
       <slot name="common" />
     </fieldset>
     <div class="sections">
-      <fieldset>
+      <fieldset v-if="!single">
         <legend>Options</legend>
         <slot name="options" />
       </fieldset>

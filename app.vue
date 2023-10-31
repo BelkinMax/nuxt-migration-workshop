@@ -132,13 +132,13 @@ function setEmittedData(data) {
     <FieldsetBlock title="Mixins & Extends" />
 
     <h2>New Directives</h2>
-    <FieldsetBlock title="v-once" />
-    <FieldsetBlock title="v-memo" />
-    <FieldsetBlock title="v-cloak" />
+    <FieldsetBlock title="v-once" single />
+    <FieldsetBlock title="v-memo" single />
+    <FieldsetBlock title="v-cloak" single />
 
     <h2>Global Components</h2>
-    <FieldsetBlock title="KeepAlive" />
-    <FieldsetBlock title="Teleport" />
+    <FieldsetBlock title="KeepAlive" single />
+    <FieldsetBlock title="Teleport" single />
   </div>
 </template>
 
