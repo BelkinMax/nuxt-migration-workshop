@@ -9,6 +9,7 @@ import { OptionsWatch, CompositionWatch } from './workshop/basics/watch'
 import { OptionsEmits, CompositionEmits } from './workshop/basics/emits'
 
 import { OptionsProvideInject, CompositionProvideInject } from './workshop/composables/provide-inject'
+import { OptionsMixinsExtends, CompositionMixinsExtends } from './workshop/composables/mixins-extends'
 
 // Props
 const propsMock = reactive({
@@ -143,7 +144,14 @@ function setEmittedData(data) {
         <CompositionProvideInject />
       </template>
     </FieldsetBlock>
-    <FieldsetBlock title="Mixins & Extends" />
+    <FieldsetBlock title="Mixins & Extends">
+      <template #options>
+        <OptionsMixinsExtends />
+      </template>
+      <template #composition>
+        <CompositionMixinsExtends />
+      </template>
+    </FieldsetBlock>
 
     <h2>New Directives</h2>
     <FieldsetBlock title="v-once" single />
