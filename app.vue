@@ -1,5 +1,6 @@
 <script setup>
 import { OptionsData, CompositionData } from './workshop/basics/data'
+import { OptionsProps, CompositionProps } from './workshop/basics/props'
 </script>
 
 <template>
@@ -10,6 +11,29 @@ import { OptionsData, CompositionData } from './workshop/basics/data'
       </template>
       <template #composition>
         <CompositionData />
+      </template>
+    </FieldsetBlock>
+
+    <FieldsetBlock title="Props">
+      <template #options>
+        <OptionsProps
+          name="John Doe"
+          age="42"
+          :client-data="{
+            isRegistered: true,
+            balance: 100
+          }"
+        />
+      </template>
+      <template #composition>
+        <CompositionProps
+          name="John Doe"
+          age="42"
+          :client-data="{
+            isRegistered: true,
+            balance: 100
+          }"
+        />
       </template>
     </FieldsetBlock>
   </div>
