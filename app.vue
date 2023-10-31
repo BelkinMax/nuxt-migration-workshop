@@ -114,7 +114,6 @@ function toggleComposition() {
       </template>
     </FieldsetBlock>
     <FieldsetBlock title="Emits" />
-    <FieldsetBlock title="Expose" />
 
     <h2>Composables</h2>
     <FieldsetBlock title="Provide & Inject" />
@@ -128,11 +127,6 @@ function toggleComposition() {
     <h2>Global Components</h2>
     <FieldsetBlock title="KeepAlive" />
     <FieldsetBlock title="Teleport" />
-    <FieldsetBlock title="Suspense (experimental)" />
-
-    <h2>Advanced Reactivity</h2>
-    <FieldsetBlock title="Ref & Reactive" />
-    <FieldsetBlock title="Scopes" />
   </div>
 </template>
 
